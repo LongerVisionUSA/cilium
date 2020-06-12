@@ -311,6 +311,7 @@ var _ = Describe("K8sDatapathConfig", func() {
 			deploymentManager.DeployCilium(map[string]string{
 				"global.tunnel":               "disabled",
 				"global.autoDirectNodeRoutes": "true",
+				"global.masquerade":           "false",
 			}, DeployCiliumOptionsAndDNS)
 
 			Expect(testPodConnectivityAcrossNodes(kubectl)).Should(BeTrue(), "Connectivity test between nodes failed")
@@ -325,6 +326,7 @@ var _ = Describe("K8sDatapathConfig", func() {
 			deploymentManager.DeployCilium(map[string]string{
 				"global.tunnel":                 "disabled",
 				"global.autoDirectNodeRoutes":   "true",
+				"global.masquerade":             "false",
 				"global.endpointRoutes.enabled": "true",
 				"global.ipv6.enabled":           "false",
 			}, DeployCiliumOptionsAndDNS)
